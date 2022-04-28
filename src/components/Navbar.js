@@ -1,9 +1,16 @@
 import React from 'react'
-
+import "./navbar.css"
 export const Navbar = () => {
   return (
-    <div>
-        
-    </div>
+    <header className='header'>
+        <h1 className='header__title'> <span>G</span>amers</h1>
+        <nav className='header__nav'>
+          <ul className='header__ul'>
+            <li>Auriculares</li>
+            <li>Teclados</li>
+            <li>Juegos</li>
+          </ul>
+        </nav>
+    </header>
   )
 }
