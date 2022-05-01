@@ -1,0 +1,6 @@
+.cart{
+    margin-right: 2em;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
