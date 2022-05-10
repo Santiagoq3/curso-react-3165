@@ -1,0 +1,23 @@
+
+.itemcount{
+    padding: 1em;
+    width: 350px;
+    height: 350px;
+}
+
+.itemcount__actions{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.itemcount__btn-cart{
+    padding: 8px;
+    border: none;
+    margin-top: 1em;
+    cursor: pointer;
+    outline: none;
+
+
+}
