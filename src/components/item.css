@@ -1,0 +1,21 @@
+.product{
+    width: 380px;
+    border: 1px solid #ccc;
+    padding: 1em;
+
+}
+
+.product img{
+    max-width: 200px;
+}
+
+.product__container{
+  width: 100%;
+}
+
+.product__container-top{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

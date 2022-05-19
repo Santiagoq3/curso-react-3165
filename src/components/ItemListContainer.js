@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { ItemCount } from './ItemCount'
+import { ItemDetailContainer } from './ItemDetailContainer'
 import { ItemList } from './ItemList'
 import "./itemlistcontainer.css"
 
@@ -20,6 +22,8 @@ const products =  [
     precio:9000,
   },
 ]
+
+
 const getProducts = new Promise((res,rej)=>{
   setTimeout(() => {
     res(products)
@@ -27,23 +31,35 @@ const getProducts = new Promise((res,rej)=>{
 })
 
 export const ItemListContainer = ({greeting}) => {
+
   const [products, setproducts] = useState([])
+  const {idCategoria} = useParams()
+  
+  useEffect(()=>{
+
+    if(idCategoria){
+      getProducts
+      .then(p=> {
+        setproducts(p.filter(p => p.categoria == idCategoria))
+      })
+      .catch((err)=> console.log(err))
+    }else{
+      getProducts
+      .then(p=> {
+        setproducts(p)
+      })
+      .catch((err)=> console.log(err))
+    }
+  },[idCategoria])
+
+
   const onAdd = ()=>{
     console.log("producto agregado")
   }
 
-  useEffect(()=>{
-    getProducts
-    .then(p=> {
-      setproducts(p)
-    })
-    .catch((err)=> console.log(err))
-    
-  })
   return (
     <main>
         <h1>{greeting}</h1>
-        <ItemCount initial={1} stock={5} onAdd={onAdd} />
         <ItemList products={products} />
     </main>
   )
